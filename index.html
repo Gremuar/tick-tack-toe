@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Крестики-нолики</title>
-    <script src="js/tick_tack_toe.js"></script>
-    <link rel="stylesheet" href="css/ticl_tack_toe.css">
-</head>
-<body>
-    <div class="ttt"></div>
-</body>
+    <script type="module" src="js/tick_tack_toe.js"></script>
+    <link rel="stylesheet" href="css/ticl_tack_toe.css" />
+  </head>
+  <body>
+    <h1>Крестики\Нолики<br />локальная игра на несколько человек</h1>
+    <div class="ttt">
+      <form method="POST" onsubmit="preventstartGame(event);return;">
+        <label>Размер поля:</label>
+        <label for="width">ширина</label
+        ><input type="number" name="width" id="width" value="4" />
+        <label for="height">высота</label
+        ><input type="number" name="height" id="height" value="4" /><br />
+        <label for="players_num">Сколько игроков?</label
+        ><input type="number" name="players_num" id="players_num" value="1" /><br />
+        <input type="submit" value="Начать" />
+      </form>
+    </div>
+  </body>
 </html>
