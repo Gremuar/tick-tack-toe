@@ -1,18 +1,18 @@
 export default class Player {
   static num = 0;
-  constructor(name = "player", marker = "") {
+  constructor(marker = "", name = `Player ${++Player.num}`) {
     this.name = name;
-    this.marker = "";
+    this.marker = marker;
   }
 
   get name() {
-    return this.name;
+    return this._name;
   }
   set name(value) {
     if (value !== null) this._name = value;
   }
   get marker() {
-    return this.marker;
+    return this._marker;
   }
   set marker(value) {
     if (value !== null) this._marker = value;

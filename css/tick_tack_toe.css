@@ -1,0 +1,42 @@
+.ttt {
+    place-content: center;
+    padding: 0 2em;
+}
+
+.ttt section {
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.ttt_board {
+    display: flex;
+    flex-wrap: wrap;
+    color: unset;
+    min-width: 100px;
+}
+
+.ttt_cell {
+    width: calc(100% / 4 - 5px);
+    border: 1px solid black;
+}
+
+.ttt_cell::after {
+    content: "";
+    padding-top: 100%;
+    display: block;
+}
+
+button[type="submit"] {
+    display: block;
+    margin: auto;
+    font-size: 125%;
+}
+
+h1,
+h2,
+h3,
+legend,
+button {
+    text-align: center;
+}
