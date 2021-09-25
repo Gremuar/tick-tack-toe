@@ -16,7 +16,7 @@ window.startGame = (e) => {
       'h': opt.get('height')
     },
     'playersNum': opt.get('players_num'),
-    'endGameFunc': () => {
+    'endGameFunc': function() {
       console.log(this);
       sOpt.addEventListener('transitionend', () => {
         console.log(this);
