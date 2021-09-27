@@ -5,6 +5,7 @@ export default class Board {
     w: 4,
     h: 4
   }, className = "ttt_board") {
+    this.cells=[]
     this.size = size;
     this.className = '.' + className;
     this.board = document.querySelector(this.className);
@@ -15,10 +16,10 @@ export default class Board {
   render() {
     // window.board = this;
     Cell.num = 0;
-    let cells = [];
     for (let i = 0, count = this.size.w * this.size.h; i < count; i++) {
-      cells.push(new Cell());
-      this.board.appendChild(cells[i].elem);
+      this.cells.push(new Cell());
+      this.board.appendChild(this.cells[i].elem);
+      this.cells[i].elem.style.width = `calc(100% / ${this.size.w} - ${getComputedStyle(this.cells[i].elem).borderBlockWidth} * 2)`;
     }
     console.log(this.toString());
   }

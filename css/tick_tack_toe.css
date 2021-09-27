@@ -1,12 +1,49 @@
+body {
+    overflow: hidden;
+}
+
 .ttt {
     place-content: center;
-    padding: 0 2em;
+    padding: 0 1em;
 }
 
 .ttt section {
+    display: block;
+    margin: auto;
     height: calc(100vh - 60px);
+    transition: 0.5s;
+}
+
+.ttt section:nth-of-type(1) {
     overflow: hidden;
     transition: all 0.5s;
+}
+
+.ttt section:nth-of-type(2) {
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.ttt section.full_size {
+    width: calc(100% - 20px);
+}
+
+.ttt section::-webkit-scrollbar {
+    width: 5px;
+    /* ширина для вертикального скролла */
+    height: 2px;
+    /* высота для горизонтального скролла */
+    background-color: #143861;
+}
+
+.ttt section::-webkit-scrollbar-thumb {
+    background-color: #2e9fff;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.ttt section::-webkit-scrollbar-thumb:hover {
+    background-color: #f7f7f7;
 }
 
 .ttt_board {
@@ -14,11 +51,15 @@
     flex-wrap: wrap;
     color: unset;
     min-width: 100px;
+    max-width: 100%;
 }
 
 .ttt_cell {
-    width: calc(100% / 4 - 5px);
-    border: 1px solid black;
+    width: calc(100% / 4 - 8px);
+    border: 4px;
+    border-style: double;
+    border-color: #2e9fff;
+    cursor: pointer;
 }
 
 .ttt_cell::after {
@@ -39,4 +80,66 @@ h3,
 legend,
 button {
     text-align: center;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+    /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+    /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+    /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221);
+    /* this is a light blue */
+}
+
+.pure-button-group {
+    display: flex;
+    border-bottom: 5px solid #abd9fa;
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .pure-button {
+    font-size: 1.5em;
+    padding: .1em .4em;
+    height: 1.4em;
+    flex-grow: 0;
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .full-size-button {
+    flex-grow: 1;
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .full-size-button span {
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .full-size-button span:nth-of-type(1) {
+    transform: rotate(180deg);
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .full-size-button.active span:nth-of-type(1) {
+    transform: translateX(25px) rotate(180deg);
+}
+
+.ttt section:nth-of-type(2) .ttt_control-panel .full-size-button.active span:nth-of-type(2) {
+    transform: translateX(-25px) rotate(0deg);
 }

@@ -18,17 +18,21 @@ export default class Game {
     console.log('App started');
     Player.num = 0;
     this.players = [];
+    this.activePlayer = '';
     for (let n = 0; n < this.options.playersNum; n++) {
       this.players.push(new Player(Game.marks[n]));
     }
     this.board = new Board(this.options.size);
-    this.board.board.addEventListener('click', () => this.endGame(this.options.endGameFunc));
+    // this.board.board.addEventListener('click', () => this.endGame());
+    this.board.board.addEventListener('click', (e) => {
+      if (e.target.className === this.board.cells[0].className) console.log(13);
+    })
 
     console.log(this.toString());
   }
 
-  endGame(callback) {
-    if (typeof callback === 'function') callback.call(this);
+  endGame() {
+    if (typeof this.options.endGameFunc === 'function') this.options.endGameFunc.call(this);
     console.log(`${this.constructor.name}: Игра окончена.`);
   }
 
