@@ -25,9 +25,8 @@ export default class Game {
     this.board = new Board(this.options.size);
     // this.board.board.addEventListener('click', () => this.endGame());
     this.board.board.addEventListener('click', (e) => {
-      if (e.target.className === this.board.cells[0].className) console.log(13);
+      if (e.target.className === this.board.cells[0].className) console.log(e);
     })
-
     console.log(this.toString());
   }
 
